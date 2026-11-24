@@ -1,3 +1,4 @@
+
 """Seventeen Syllables of Debugging - entry program.
 
 Writes one haiku about debugging (5-7-5) to /output/entry.txt.
@@ -16,7 +17,7 @@ OUTPUT_PATH = "/output/entry.txt"
 
 def main() -> None:
     text = HAIKU.rstrip("\n") + "\n"
-    lines = text.strip("\n").split("\n")
+    lines = text.rstrip("\n").split("\n")
     if len(lines) != 3:
         raise ValueError("haiku must have exactly three lines")
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
