@@ -1,4 +1,4 @@
-"""Seventeen Syllables of Debugging.
+"""Seventeen Syllables of Debugging — entry program.
 
 Writes one haiku about debugging (5-7-5) to /output/entry.txt.
 Stdlib only, no network, no input files.
@@ -18,10 +18,11 @@ def main() -> None:
     text = HAIKU.rstrip("\n") + "\n"
     lines = text.rstrip("\n").split("\n")
     if len(lines) != 3:
-        raise ValueError("haiku must be exactly three lines")
+        raise ValueError("haiku must have exactly three lines")
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8", newline="\n") as handle:
         handle.write(text)
+        handle.flush()
 
 
 if __name__ == "__main__":
